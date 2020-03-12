@@ -4,6 +4,7 @@
 #include "Framework/Input.h"
 #include "BeachBallManager.h"
 #include "EntityManager.h"
+#include "Player.h"
 #include <string>
 #include <iostream>
 
@@ -26,4 +27,6 @@ private:
 	sf::RenderWindow* window;
 	Input* input;
 	EntityManager manager;
+	Player player;
+	sf::Texture texture;
 };

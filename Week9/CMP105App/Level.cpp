@@ -6,7 +6,11 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	input = in;
 
 	// initialise game objects
-	
+	texture.loadFromFile("gfx/Goomba.png");
+	player.setTexture(&texture);
+	player.setSize(sf::Vector2f(100, 100));
+	player.setPosition(100, 510);
+	player.setInput(input);
 }
 
 Level::~Level()
@@ -17,17 +21,19 @@ Level::~Level()
 // handle user input
 void Level::handleInput(float dt)
 {
-	if (input->isKeyDown(sf::Keyboard::Space))
+	player.handleInput(dt)
+	/*if (input->isKeyDown(sf::Keyboard::Space))
 	{
 		manager.spawn();
 		input->setKeyUp(sf::Keyboard::Space);
-	}
+	}*/
 }
 
 // Update game objects
 void Level::update(float dt)
 {
-	manager.update(dt);
+	player.move(player.getSpeedX() * dt, player.getSpeedY() * dt);
+	//manager.update(dt);
 
 }
 
@@ -35,6 +41,7 @@ void Level::update(float dt)
 void Level::render()
 {
 	beginDraw();
+	window->draw(player);
 	manager.render(window);
 	endDraw();
 }
