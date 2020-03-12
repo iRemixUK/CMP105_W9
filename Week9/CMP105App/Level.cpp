@@ -20,6 +20,7 @@ void Level::handleInput(float dt)
 	if (input->isKeyDown(sf::Keyboard::Space))
 	{
 		manager.spawn();
+		input->setKeyUp(sf::Keyboard::Space);
 	}
 }
 

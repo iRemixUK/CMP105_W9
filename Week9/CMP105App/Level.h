@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "Framework/Input.h"
 #include "BeachBallManager.h"
+#include "EntityManager.h"
 #include <string>
 #include <iostream>
 
@@ -24,5 +25,5 @@ private:
 	// Default variables for level class.
 	sf::RenderWindow* window;
 	Input* input;
-	BeachBallManager manager;
+	EntityManager manager;
 };
