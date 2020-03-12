@@ -21,19 +21,19 @@ Level::~Level()
 // handle user input
 void Level::handleInput(float dt)
 {
-	player.handleInput(dt)
-	/*if (input->isKeyDown(sf::Keyboard::Space))
+	player.handleInput(dt);
+	if (input->isKeyDown(sf::Keyboard::Space))
 	{
-		manager.spawn();
+		manager.spawn(player.getPosition().x, player.getPosition().y);
 		input->setKeyUp(sf::Keyboard::Space);
-	}*/
+	}
 }
 
 // Update game objects
 void Level::update(float dt)
 {
 	player.move(player.getSpeedX() * dt, player.getSpeedY() * dt);
-	//manager.update(dt);
+	manager.update(dt);
 
 }
 

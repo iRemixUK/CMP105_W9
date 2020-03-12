@@ -21,15 +21,15 @@ EntityManager::~EntityManager()
 
 }
 
-void EntityManager::spawn()
+void EntityManager::spawn(float posx, float posy)
 {
 	for (int i = 0; i < balls.size(); i++)
 	{
 		if (!balls[i].isAlive())
 		{
-			spawnPoint = sf::Vector2f(rand() % 1200, -50);
+			spawnPoint = sf::Vector2f(posx, posy);
 			balls[i].setAlive(true);
-			balls[i].setVelocity(0, 200);
+			balls[i].setVelocity(200, 0);
 			balls[i].setPosition(spawnPoint);
 			cout << balls.size();
 			return;
