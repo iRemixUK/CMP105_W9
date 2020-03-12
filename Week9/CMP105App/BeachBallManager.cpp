@@ -1,4 +1,5 @@
 #include "BeachBallManager.h"
+using namespace std;
 
 BeachBallManager::BeachBallManager()
 {
@@ -45,7 +46,16 @@ void BeachBallManager::spawn()
 			balls[i].setPosition(spawnPoint);
 			return;
 		}
+
 	}
+	
+		balls.push_back(Ball());
+		balls[balls.size() - 1].setTexture(&texture);
+		balls[balls.size() - 1].setSize(sf::Vector2f(100, 100));
+		balls[balls.size() - 1].setAlive(true);
+		balls[balls.size() - 1].setVelocity(rand() % 200 - 100, rand() % 200 - 100);
+		balls[balls.size() - 1].setPosition(spawnPoint);
+	
 }
 
 // Check all ALIVE balls to see if outscreenscreen/range, if so make dead
